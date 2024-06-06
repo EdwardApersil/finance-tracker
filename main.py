@@ -20,12 +20,14 @@ def main():
             username = input("Enter username: ")
             password = getpass("Enter password: ")
             if User.authenticate_user(username, password):
-                print("Login successful!")
+                print("Welcome back!, enjoy your stay", username)
+                print()
                 while True:
                     print("\n1. Add Transaction")
                     print("2. View Transactions")
                     print("3. Generate Summary")
                     print("4. Logout")
+                    print()
                     user_choice = input("Choose an option: ")
 
                     if user_choice == '1':
@@ -36,7 +38,8 @@ def main():
                         description = input("Enter description: ")
                         Transaction.create_transaction(username, date, type, category, amount, description)
                         print("Transaction added successfully!")
-
+                        print()
+                    
                     elif user_choice == '2':
                         transactions = Transaction.view_transactions(username)
                         for transaction in transactions:
@@ -47,6 +50,7 @@ def main():
 
                     elif user_choice == '4':
                         print("Logged out.")
+                        print()
                         break
             else:
                 print("Invalid credentials!")
